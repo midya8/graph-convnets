@@ -61,3 +61,15 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install numpy==2.2.6
       - run: PYTHONPATH=. python examples/reference_joint.py
+  installed-suite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install setuptools wheel
+      - run: python examples/check_installed_suite.py --section tests
+      - run: python examples/check_installed_suite.py --section commands
