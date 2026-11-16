@@ -26,6 +26,22 @@ python examples/render_attribution.py /tmp/input-audit.json --check
 
 Python 3.10+, standard library only. No downloaded graph, pretrained model, account, GPU, external dependency or paid API. The full demo takes about seven seconds on the development machine; runtime depends on hardware/Python.
 
+For a full installed replay, run `python examples/check_installed_suite.py` after
+installing setuptools and wheel. It builds a wheel in a fresh environment and
+runs all 51 existing Python tests outside the checkout. All eight module origins
+are checked in that environment's site-packages before and after. The executable
+`__main__` module is located without importing it; its entrypoint runs in the
+command replay. Copied tests, examples and browser files contain no library
+Python source.
+
+The replay compares 18 complete reports across all nine CLI commands through
+both `python -m graphlab` and the installed `graphlab` command. The complete
+freshly trained model must also match. These are same-runtime source/wheel
+comparisons, not new numerical or statistical evidence. Existing independent
+references and numerical tolerances remain unchanged. Use `--section tests` or
+`--section commands` to run either half. CI runs both in a separate job and
+keeps the original installed-package check.
+
 ## The model
 
 For undirected binary adjacency A and added self loops:
