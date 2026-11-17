@@ -1,5 +1,5 @@
-# GraphLab
-GraphLab trains a two-layer graph convolutional network on a small synthetic graph. It implements degree-normalized propagation, masked node supervision and validation-only checkpoint selection without runtime dependencies, and keeps matched feature-only and scrambled-graph controls visible.
+# Graph convnets
+Graph convnets trains a two-layer graph convolutional network on a small synthetic graph. It implements degree-normalized propagation, masked node supervision and validation-only checkpoint selection without runtime dependencies, and keeps matched feature-only and scrambled-graph controls visible.
 
 For a fixed model, three audits ask different questions:
 
